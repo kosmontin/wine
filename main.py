@@ -12,7 +12,7 @@ env = Environment(
 
 template = env.get_template('template.html')
 
-xls_data = pandas.read_excel('db/wine2.xlsx', na_values=' ', keep_default_na=False)
+xls_data = pandas.read_excel('db/wine3.xlsx', na_values=' ', keep_default_na=False)
 wine_dict = defaultdict(list)
 for wine in xls_data.values:
     wine_dict[wine[0]].append(dict(zip(list(xls_data), wine)))
