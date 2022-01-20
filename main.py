@@ -1,6 +1,7 @@
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from datetime import datetime
+from collections import defaultdict
 import pandas
 
 
@@ -11,11 +12,14 @@ env = Environment(
 
 template = env.get_template('template.html')
 
-xls_data = pandas.read_excel('db/wine.xlsx', usecols=['Название', 'Сорт', 'Цена', 'Картинка'])
+xls_data = pandas.read_excel('db/wine2.xlsx')
+wine_dict = defaultdict(list)
+for wine in xls_data.values:
+    wine_dict[wine[0]].append(dict(zip(list(xls_data), wine)))
 
 rendered_page = template.render(
     age = datetime.now().year - 1920,
-    cards = xls_data.to_dict(orient='records')
+    wine_dict = wine_dict
 )
 
 
