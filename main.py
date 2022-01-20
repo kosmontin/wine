@@ -2,6 +2,7 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from datetime import datetime
 from collections import defaultdict
+from collections import OrderedDict
 import pandas
 
 
@@ -19,7 +20,7 @@ for wine in xls_data.values:
 
 rendered_page = template.render(
     age = datetime.now().year - 1920,
-    wine_dict = wine_dict
+    wine_dict = OrderedDict(sorted(wine_dict.items()))
 )
 
 
