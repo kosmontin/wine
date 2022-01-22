@@ -1,10 +1,9 @@
-from http.server import HTTPServer, SimpleHTTPRequestHandler
-from jinja2 import Environment, FileSystemLoader, select_autoescape
+from collections import OrderedDict, defaultdict
 from datetime import datetime
-from collections import defaultdict
-from collections import OrderedDict
-import pandas
+from http.server import HTTPServer, SimpleHTTPRequestHandler
 
+import pandas
+from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 env = Environment(
     loader=FileSystemLoader('.'),

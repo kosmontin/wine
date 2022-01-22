@@ -3,6 +3,6 @@ venv/
 db/
 .vscode/
 .idea/
-.replit
-index.html
+/.replit
+/index.html
 tmp.py
