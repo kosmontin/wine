@@ -1,5 +1,8 @@
 env/
 venv/
+db/
 .vscode/
 .idea/
+.replit
+index.html
 tmp.py
