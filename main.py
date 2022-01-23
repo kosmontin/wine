@@ -21,6 +21,7 @@ parser.add_argument('--file', type=str, default='db/data.xlsx', help='excel file
 args = parser.parse_args()
 
 FILE_PATH = args.file
+FOUNDING_DATE = 1920
 
 if os.path.isfile(FILE_PATH):
     products_from_xls = pandas.read_excel(FILE_PATH, na_values=' ', keep_default_na=False)
@@ -29,7 +30,7 @@ if os.path.isfile(FILE_PATH):
         wines[wine[0]].append(dict(zip(list(products_from_xls), wine)))
 
     rendered_page = template.render(
-        age=datetime.now().year - 1920,
+        age=datetime.now().year - FOUNDING_DATE,
         wines=OrderedDict(sorted(wines.items()))
     )
 
