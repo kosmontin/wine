@@ -12,14 +12,14 @@ env = Environment(
 
 template = env.get_template('template.html')
 
-xls_data = pandas.read_excel('db/wine3.xlsx', na_values=' ', keep_default_na=False)
-wine_dict = defaultdict(list)
-for wine in xls_data.values:
-    wine_dict[wine[0]].append(dict(zip(list(xls_data), wine)))
+products_from_xls = pandas.read_excel('db/wine3.xlsx', na_values=' ', keep_default_na=False)
+wines = defaultdict(list)
+for wine in products_from_xls.values:
+    wines[wine[0]].append(dict(zip(list(products_from_xls), wine)))
 
 rendered_page = template.render(
     age = datetime.now().year - 1920,
-    wine_dict = OrderedDict(sorted(wine_dict.items()))
+    wines = OrderedDict(sorted(wines.items()))
 )
 
 
