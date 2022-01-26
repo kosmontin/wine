@@ -1,8 +1,8 @@
 import argparse
+import os
 from collections import OrderedDict, defaultdict
 from datetime import datetime
 from http.server import HTTPServer, SimpleHTTPRequestHandler
-import os
 
 import pandas
 from jinja2 import Environment, FileSystemLoader, select_autoescape
