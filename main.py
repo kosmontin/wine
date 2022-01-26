@@ -14,9 +14,9 @@ def get_filepath_from_args():
     parser = argparse.ArgumentParser(
         description='''Local web-server and site about wine. 
             After run, open in browser http://127.0.0.1:8000/''')
-    parser.add_argument('--file', type=str, default='db/data.xlsx', help='excel file for load data on site from it')
+    parser.add_argument('--filepath', type=str, default='db/data.xlsx', help='excel file for load data on site from it')
     args = parser.parse_args()
-    return args.file
+    return args.filepath
 
 
 def main():
